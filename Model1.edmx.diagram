@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6bb95b32173743e398f1641efddb0411" Name="Diagram1">
+        <EntityTypeShape EntityType="CinemaFlixModel.CashierShifts" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Cinemas" Width="1.5" PointX="1.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Genres" Width="1.5" PointX="1.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Movies" Width="1.5" PointX="1.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.PromoCodes" Width="1.5" PointX="3.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.SeatReservations" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Seats" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Showtimes" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.ShowtimeStatusChanges" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Studios" Width="1.5" PointX="1.5" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.TransactionDetails" Width="1.5" PointX="11.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Transactions" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinemaFlixModel.Users" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="CinemaFlixModel.FK__CashierSh__Cashi__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Studios__CinemaI__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Movies__GenreID__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Showtimes__Movie__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Transacti__Promo__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__SeatReser__SeatI__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__SeatReser__Showt__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__SeatReser__Trans__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Seats__StudioID__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Transacti__SeatI__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__ShowtimeS__Showt__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Showtimes__Studi__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Transacti__Showt__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__ShowtimeS__NewSt__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Transacti__Trans__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Transacti__Cashi__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="CinemaFlixModel.FK__Transacti__Refun__7B5B524B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

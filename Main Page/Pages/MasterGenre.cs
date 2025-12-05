@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.Entity.Migrations;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CinemaFlix_Apps.Main_Page.Pages
+{
+    public partial class MasterGenre : Form
+    {
+        CinemaFlixEntities db = new CinemaFlixEntities();
+        public MasterGenre()
+        {
+            InitializeComponent();
+        }
+
+        private void MasterGenre_Load(object sender, EventArgs e)
+        {
+            genresBindingSource1.DataSource = db.Genres.ToList();
+
+            genresBindingSource1.AddNew();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var g = genresBindingSource.Current as Genres;
+
+            db.Genres.AddOrUpdate(g);
+            db.SaveChanges();
+            OnLoad(null);
+        }
+    }
+}
