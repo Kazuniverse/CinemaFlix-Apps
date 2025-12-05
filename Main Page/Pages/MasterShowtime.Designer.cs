@@ -40,6 +40,7 @@
             this.coupleSeatPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.aksi2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.showtimesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.showtimesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -67,8 +68,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.showtimesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).BeginInit();
@@ -77,11 +78,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -100,6 +102,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(20, 93);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(760, 195);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -109,58 +112,72 @@
             this.showtimeCodeDataGridViewTextBoxColumn.DataPropertyName = "ShowtimeCode";
             this.showtimeCodeDataGridViewTextBoxColumn.HeaderText = "ShowtimeCode";
             this.showtimeCodeDataGridViewTextBoxColumn.Name = "showtimeCodeDataGridViewTextBoxColumn";
+            this.showtimeCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // moviesDataGridViewTextBoxColumn
             // 
             this.moviesDataGridViewTextBoxColumn.DataPropertyName = "Movies";
             this.moviesDataGridViewTextBoxColumn.HeaderText = "Movies";
             this.moviesDataGridViewTextBoxColumn.Name = "moviesDataGridViewTextBoxColumn";
+            this.moviesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // studiosDataGridViewTextBoxColumn
             // 
             this.studiosDataGridViewTextBoxColumn.DataPropertyName = "Studios";
             this.studiosDataGridViewTextBoxColumn.HeaderText = "Studios";
             this.studiosDataGridViewTextBoxColumn.Name = "studiosDataGridViewTextBoxColumn";
+            this.studiosDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // showDateDataGridViewTextBoxColumn
             // 
             this.showDateDataGridViewTextBoxColumn.DataPropertyName = "ShowDate";
             this.showDateDataGridViewTextBoxColumn.HeaderText = "ShowDate";
             this.showDateDataGridViewTextBoxColumn.Name = "showDateDataGridViewTextBoxColumn";
+            this.showDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // showTimeDataGridViewTextBoxColumn
             // 
             this.showTimeDataGridViewTextBoxColumn.DataPropertyName = "ShowTime";
             this.showTimeDataGridViewTextBoxColumn.HeaderText = "ShowTime";
             this.showTimeDataGridViewTextBoxColumn.Name = "showTimeDataGridViewTextBoxColumn";
+            this.showTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // basePriceDataGridViewTextBoxColumn
             // 
             this.basePriceDataGridViewTextBoxColumn.DataPropertyName = "BasePrice";
             this.basePriceDataGridViewTextBoxColumn.HeaderText = "BasePrice";
             this.basePriceDataGridViewTextBoxColumn.Name = "basePriceDataGridViewTextBoxColumn";
+            this.basePriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // premiumSeatPriceDataGridViewTextBoxColumn
             // 
             this.premiumSeatPriceDataGridViewTextBoxColumn.DataPropertyName = "PremiumSeatPrice";
             this.premiumSeatPriceDataGridViewTextBoxColumn.HeaderText = "PremiumSeatPrice";
             this.premiumSeatPriceDataGridViewTextBoxColumn.Name = "premiumSeatPriceDataGridViewTextBoxColumn";
+            this.premiumSeatPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // coupleSeatPriceDataGridViewTextBoxColumn
             // 
             this.coupleSeatPriceDataGridViewTextBoxColumn.DataPropertyName = "CoupleSeatPrice";
             this.coupleSeatPriceDataGridViewTextBoxColumn.HeaderText = "CoupleSeatPrice";
             this.coupleSeatPriceDataGridViewTextBoxColumn.Name = "coupleSeatPriceDataGridViewTextBoxColumn";
+            this.coupleSeatPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // aksi1
             // 
             this.aksi1.HeaderText = "Action 1";
             this.aksi1.Name = "aksi1";
+            this.aksi1.ReadOnly = true;
             // 
             // aksi2
             // 
             this.aksi2.HeaderText = "Action 2";
             this.aksi2.Name = "aksi2";
+            this.aksi2.ReadOnly = true;
+            // 
+            // showtimesBindingSource1
+            // 
+            this.showtimesBindingSource1.DataSource = typeof(CinemaFlix_Apps.Showtimes);
             // 
             // showtimesBindingSource
             // 
@@ -420,10 +437,6 @@
             this.label11.TabIndex = 8;
             this.label11.Text = "label11";
             // 
-            // showtimesBindingSource1
-            // 
-            this.showtimesBindingSource1.DataSource = typeof(CinemaFlix_Apps.Showtimes);
-            // 
             // MasterShowtime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +450,7 @@
             this.Text = "MasterShowtime";
             this.Load += new System.EventHandler(this.MasterShowtime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -447,7 +461,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

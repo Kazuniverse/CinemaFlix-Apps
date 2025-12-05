@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.showtimeStatusChangesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,30 +40,29 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lastmodif = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studiosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showtimeCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moviesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.showtimeStatusChangesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastmodif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.showtimesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.showtimeStatusChangesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.showtimesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.studiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.showtimesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.showtimeStatusChangesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimeStatusChangesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox5
@@ -74,6 +74,10 @@
             this.textBox5.Size = new System.Drawing.Size(200, 97);
             this.textBox5.TabIndex = 13;
             this.textBox5.Visible = false;
+            // 
+            // showtimeStatusChangesBindingSource
+            // 
+            this.showtimeStatusChangesBindingSource.DataSource = typeof(CinemaFlix_Apps.ShowtimeStatusChanges);
             // 
             // label7
             // 
@@ -156,6 +160,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -172,10 +178,69 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(20, 93);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(760, 232);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // studiosDataGridViewTextBoxColumn
+            // 
+            this.studiosDataGridViewTextBoxColumn.DataPropertyName = "Studios";
+            this.studiosDataGridViewTextBoxColumn.HeaderText = "Studios";
+            this.studiosDataGridViewTextBoxColumn.Name = "studiosDataGridViewTextBoxColumn";
+            this.studiosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // showtimeCodeDataGridViewTextBoxColumn
+            // 
+            this.showtimeCodeDataGridViewTextBoxColumn.DataPropertyName = "ShowtimeCode";
+            this.showtimeCodeDataGridViewTextBoxColumn.HeaderText = "ShowtimeCode";
+            this.showtimeCodeDataGridViewTextBoxColumn.Name = "showtimeCodeDataGridViewTextBoxColumn";
+            this.showtimeCodeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // moviesDataGridViewTextBoxColumn
+            // 
+            this.moviesDataGridViewTextBoxColumn.DataPropertyName = "Movies";
+            this.moviesDataGridViewTextBoxColumn.HeaderText = "Movies";
+            this.moviesDataGridViewTextBoxColumn.Name = "moviesDataGridViewTextBoxColumn";
+            this.moviesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // showDateDataGridViewTextBoxColumn
+            // 
+            this.showDateDataGridViewTextBoxColumn.DataPropertyName = "ShowDate";
+            this.showDateDataGridViewTextBoxColumn.HeaderText = "ShowDate";
+            this.showDateDataGridViewTextBoxColumn.Name = "showDateDataGridViewTextBoxColumn";
+            this.showDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // showTimeDataGridViewTextBoxColumn
+            // 
+            this.showTimeDataGridViewTextBoxColumn.DataPropertyName = "ShowTime";
+            this.showTimeDataGridViewTextBoxColumn.HeaderText = "ShowTime";
+            this.showTimeDataGridViewTextBoxColumn.Name = "showTimeDataGridViewTextBoxColumn";
+            this.showTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // showtimeStatusChangesDataGridViewTextBoxColumn
+            // 
+            this.showtimeStatusChangesDataGridViewTextBoxColumn.DataPropertyName = "ShowtimeStatusChanges";
+            this.showtimeStatusChangesDataGridViewTextBoxColumn.HeaderText = "ShowtimeStatusChanges";
+            this.showtimeStatusChangesDataGridViewTextBoxColumn.Name = "showtimeStatusChangesDataGridViewTextBoxColumn";
+            this.showtimeStatusChangesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastmodif
+            // 
+            this.lastmodif.HeaderText = "LastModified";
+            this.lastmodif.Name = "lastmodif";
+            this.lastmodif.ReadOnly = true;
+            // 
+            // aksi1
+            // 
+            this.aksi1.HeaderText = "Action 1";
+            this.aksi1.Name = "aksi1";
+            this.aksi1.ReadOnly = true;
+            // 
+            // showtimesBindingSource
+            // 
+            this.showtimesBindingSource.DataSource = typeof(CinemaFlix_Apps.Showtimes);
             // 
             // panel1
             // 
@@ -217,63 +282,21 @@
             this.panel2.Size = new System.Drawing.Size(760, 205);
             this.panel2.TabIndex = 7;
             // 
-            // aksi1
+            // comboBox2
             // 
-            this.aksi1.HeaderText = "Action 1";
-            this.aksi1.Name = "aksi1";
+            this.comboBox2.DataSource = this.studiosBindingSource;
+            this.comboBox2.DisplayMember = "StudioNumber";
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(416, 27);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(199, 21);
+            this.comboBox2.TabIndex = 16;
+            this.comboBox2.ValueMember = "StudioID";
+            this.comboBox2.Visible = false;
             // 
-            // lastmodif
+            // studiosBindingSource
             // 
-            this.lastmodif.HeaderText = "LastModified";
-            this.lastmodif.Name = "lastmodif";
-            // 
-            // studiosDataGridViewTextBoxColumn
-            // 
-            this.studiosDataGridViewTextBoxColumn.DataPropertyName = "Studios";
-            this.studiosDataGridViewTextBoxColumn.HeaderText = "Studios";
-            this.studiosDataGridViewTextBoxColumn.Name = "studiosDataGridViewTextBoxColumn";
-            // 
-            // showtimeCodeDataGridViewTextBoxColumn
-            // 
-            this.showtimeCodeDataGridViewTextBoxColumn.DataPropertyName = "ShowtimeCode";
-            this.showtimeCodeDataGridViewTextBoxColumn.HeaderText = "ShowtimeCode";
-            this.showtimeCodeDataGridViewTextBoxColumn.Name = "showtimeCodeDataGridViewTextBoxColumn";
-            // 
-            // moviesDataGridViewTextBoxColumn
-            // 
-            this.moviesDataGridViewTextBoxColumn.DataPropertyName = "Movies";
-            this.moviesDataGridViewTextBoxColumn.HeaderText = "Movies";
-            this.moviesDataGridViewTextBoxColumn.Name = "moviesDataGridViewTextBoxColumn";
-            // 
-            // showDateDataGridViewTextBoxColumn
-            // 
-            this.showDateDataGridViewTextBoxColumn.DataPropertyName = "ShowDate";
-            this.showDateDataGridViewTextBoxColumn.HeaderText = "ShowDate";
-            this.showDateDataGridViewTextBoxColumn.Name = "showDateDataGridViewTextBoxColumn";
-            // 
-            // showTimeDataGridViewTextBoxColumn
-            // 
-            this.showTimeDataGridViewTextBoxColumn.DataPropertyName = "ShowTime";
-            this.showTimeDataGridViewTextBoxColumn.HeaderText = "ShowTime";
-            this.showTimeDataGridViewTextBoxColumn.Name = "showTimeDataGridViewTextBoxColumn";
-            // 
-            // showtimeStatusChangesDataGridViewTextBoxColumn
-            // 
-            this.showtimeStatusChangesDataGridViewTextBoxColumn.DataPropertyName = "ShowtimeStatusChanges";
-            this.showtimeStatusChangesDataGridViewTextBoxColumn.HeaderText = "ShowtimeStatusChanges";
-            this.showtimeStatusChangesDataGridViewTextBoxColumn.Name = "showtimeStatusChangesDataGridViewTextBoxColumn";
-            // 
-            // showtimesBindingSource
-            // 
-            this.showtimesBindingSource.DataSource = typeof(CinemaFlix_Apps.Showtimes);
-            // 
-            // showtimeStatusChangesBindingSource
-            // 
-            this.showtimeStatusChangesBindingSource.DataSource = typeof(CinemaFlix_Apps.ShowtimeStatusChanges);
-            // 
-            // showtimesBindingSource1
-            // 
-            this.showtimesBindingSource1.DataSource = typeof(CinemaFlix_Apps.Showtimes);
+            this.studiosBindingSource.DataSource = typeof(CinemaFlix_Apps.Studios);
             // 
             // comboBox1
             // 
@@ -285,22 +308,12 @@
             this.comboBox1.Size = new System.Drawing.Size(199, 21);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.ValueMember = "ChangeID";
+            this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // showtimesBindingSource1
             // 
-            this.comboBox2.DataSource = this.studiosBindingSource;
-            this.comboBox2.DisplayMember = "StudioNumber";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(416, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 21);
-            this.comboBox2.TabIndex = 16;
-            this.comboBox2.ValueMember = "StudioID";
-            // 
-            // studiosBindingSource
-            // 
-            this.studiosBindingSource.DataSource = typeof(CinemaFlix_Apps.Studios);
+            this.showtimesBindingSource1.DataSource = typeof(CinemaFlix_Apps.Showtimes);
             // 
             // ChangeShowStatus
             // 
@@ -314,15 +327,15 @@
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "ChangeShowStatus";
             this.Load += new System.EventHandler(this.ChangeShowStatus_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.showtimeStatusChangesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimeStatusChangesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

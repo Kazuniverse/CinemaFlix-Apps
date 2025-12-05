@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.aksi2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.aksi2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,29 +48,31 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.promoCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discountPercentageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxDiscountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validFromDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.validUntilDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.promoCodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.promoCodesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.promoCodesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.promoCodesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promoCodesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.promoCodesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -87,8 +89,23 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(20, 93);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(760, 229);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // aksi1
+            // 
+            this.aksi1.FillWeight = 98.63063F;
+            this.aksi1.HeaderText = "Action 1";
+            this.aksi1.Name = "aksi1";
+            this.aksi1.ReadOnly = true;
+            // 
+            // aksi2
+            // 
+            this.aksi2.FillWeight = 100.4184F;
+            this.aksi2.HeaderText = "Action 2";
+            this.aksi2.Name = "aksi2";
+            this.aksi2.ReadOnly = true;
             // 
             // panel1
             // 
@@ -137,18 +154,6 @@
             this.label9.Size = new System.Drawing.Size(66, 24);
             this.label9.TabIndex = 4;
             this.label9.Text = "label9";
-            // 
-            // aksi1
-            // 
-            this.aksi1.FillWeight = 98.63063F;
-            this.aksi1.HeaderText = "Action 1";
-            this.aksi1.Name = "aksi1";
-            // 
-            // aksi2
-            // 
-            this.aksi2.FillWeight = 100.4184F;
-            this.aksi2.HeaderText = "Action 2";
-            this.aksi2.Name = "aksi2";
             // 
             // label4
             // 
@@ -268,21 +273,13 @@
             this.panel2.Size = new System.Drawing.Size(760, 208);
             this.panel2.TabIndex = 4;
             // 
-            // numericUpDown1
+            // dateTimePicker2
             // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.promoCodesBindingSource, "DiscountPercentage", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(88, 24);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown1.TabIndex = 66;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.promoCodesBindingSource, "MaxDiscount", true));
-            this.numericUpDown2.Location = new System.Drawing.Point(88, 57);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown2.TabIndex = 67;
+            this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.promoCodesBindingSource, "ValidUntil", true));
+            this.dateTimePicker2.Location = new System.Drawing.Point(88, 155);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 69;
             // 
             // dateTimePicker1
             // 
@@ -292,13 +289,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 68;
             // 
-            // dateTimePicker2
+            // numericUpDown2
             // 
-            this.dateTimePicker2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.promoCodesBindingSource, "ValidUntil", true));
-            this.dateTimePicker2.Location = new System.Drawing.Point(88, 155);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 69;
+            this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.promoCodesBindingSource, "MaxDiscount", true));
+            this.numericUpDown2.Location = new System.Drawing.Point(88, 57);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(200, 20);
+            this.numericUpDown2.TabIndex = 67;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.promoCodesBindingSource, "DiscountPercentage", true));
+            this.numericUpDown1.Location = new System.Drawing.Point(88, 24);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
+            this.numericUpDown1.TabIndex = 66;
             // 
             // promoCodeDataGridViewTextBoxColumn
             // 
@@ -306,6 +311,7 @@
             this.promoCodeDataGridViewTextBoxColumn.FillWeight = 102.7146F;
             this.promoCodeDataGridViewTextBoxColumn.HeaderText = "PromoCode";
             this.promoCodeDataGridViewTextBoxColumn.Name = "promoCodeDataGridViewTextBoxColumn";
+            this.promoCodeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // discountPercentageDataGridViewTextBoxColumn
             // 
@@ -313,6 +319,7 @@
             this.discountPercentageDataGridViewTextBoxColumn.FillWeight = 100.1692F;
             this.discountPercentageDataGridViewTextBoxColumn.HeaderText = "DiscountPercentage";
             this.discountPercentageDataGridViewTextBoxColumn.Name = "discountPercentageDataGridViewTextBoxColumn";
+            this.discountPercentageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // maxDiscountDataGridViewTextBoxColumn
             // 
@@ -320,6 +327,7 @@
             this.maxDiscountDataGridViewTextBoxColumn.FillWeight = 100.388F;
             this.maxDiscountDataGridViewTextBoxColumn.HeaderText = "MaxDiscount";
             this.maxDiscountDataGridViewTextBoxColumn.Name = "maxDiscountDataGridViewTextBoxColumn";
+            this.maxDiscountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // validFromDataGridViewTextBoxColumn
             // 
@@ -327,6 +335,7 @@
             this.validFromDataGridViewTextBoxColumn.FillWeight = 99.82896F;
             this.validFromDataGridViewTextBoxColumn.HeaderText = "ValidFrom";
             this.validFromDataGridViewTextBoxColumn.Name = "validFromDataGridViewTextBoxColumn";
+            this.validFromDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // validUntilDataGridViewTextBoxColumn
             // 
@@ -334,6 +343,7 @@
             this.validUntilDataGridViewTextBoxColumn.FillWeight = 98.33749F;
             this.validUntilDataGridViewTextBoxColumn.HeaderText = "ValidUntil";
             this.validUntilDataGridViewTextBoxColumn.Name = "validUntilDataGridViewTextBoxColumn";
+            this.validUntilDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -341,14 +351,15 @@
             this.descriptionDataGridViewTextBoxColumn.FillWeight = 99.51284F;
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // promoCodesBindingSource
-            // 
-            this.promoCodesBindingSource.DataSource = typeof(CinemaFlix_Apps.PromoCodes);
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // promoCodesBindingSource1
             // 
             this.promoCodesBindingSource1.DataSource = typeof(CinemaFlix_Apps.PromoCodes);
+            // 
+            // promoCodesBindingSource
+            // 
+            this.promoCodesBindingSource.DataSource = typeof(CinemaFlix_Apps.PromoCodes);
             // 
             // MasterPromoCode
             // 
@@ -367,10 +378,10 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.promoCodesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.promoCodesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.promoCodesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

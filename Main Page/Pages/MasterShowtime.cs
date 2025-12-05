@@ -31,7 +31,7 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             moviesBindingSource.DataSource = db.Movies.ToList();
             studiosBindingSource.DataSource = db.Studios.ToList();
 
-            showtimesBindingSource1.AddNew();
+            showtimesBindingSource.AddNew();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -39,9 +39,9 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             var s = dataGridView1.Rows[e.RowIndex].DataBoundItem as Showtimes;
 
             if (e.ColumnIndex == moviesDataGridViewTextBoxColumn.Index)
-                e.Value = s.Movies.Title;
+                e.Value = s?.Movies?.Title;
             if (e.ColumnIndex == studiosDataGridViewTextBoxColumn.Index)
-                e.Value = s.Studios.StudioNumber;
+                e.Value = s?.Studios?.StudioNumber;
         }
 
         private void button1_Click(object sender, EventArgs e)

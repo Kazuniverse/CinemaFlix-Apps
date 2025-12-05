@@ -25,16 +25,16 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
             cinemasBindingSource.DataSource = db.Cinemas.ToList();
 
-            studiosBindingSource1.AddNew();
+            studiosBindingSource.AddNew();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var s = studiosBindingSource.Current as Studios;
 
-            var c = Convert.ToInt32(comboBox1.SelectedValue);
+            var c = Convert.ToInt32(cinemaNameComboBox.SelectedValue);
 
-            s.CinemaID = c; 
+            s.CinemaID = c;
 
             db.Studios.AddOrUpdate(s);
             db.SaveChanges();
@@ -46,7 +46,12 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             var s = dataGridView1.Rows[e.RowIndex].DataBoundItem as Studios;
 
             if (e.ColumnIndex == cinemasDataGridViewTextBoxColumn.Index)
-                e.Value = s.Cinemas.CinemaName;
+                e.Value = s?.Cinemas?.CinemaName;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OnLoad(null);
         }
     }
 }

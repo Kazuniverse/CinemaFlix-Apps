@@ -31,7 +31,7 @@ namespace CinemaFlix_Apps.Main_Page.Pages
         {
             promoCodesBindingSource1.DataSource = db.PromoCodes.ToList();
 
-            promoCodesBindingSource1.AddNew();
+            promoCodesBindingSource.AddNew();
         }
     }
 }

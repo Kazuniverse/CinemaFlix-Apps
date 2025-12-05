@@ -30,10 +30,17 @@ namespace CinemaFlix_Apps
 
             if (user != null && valid)
             {
+                Session.UID = user.UserID;
+                Session.UName = user.FullName;
+                Session.Role = user.Role;
                 MessageBox.Show("Login Successfull!");
                 var dash = new Dashboard();
                 dash.Show();
                 Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Data!");
             }
         }
 

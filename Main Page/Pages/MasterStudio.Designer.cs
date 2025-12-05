@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label cinemaIDLabel;
+            System.Windows.Forms.Label seatsPerRowLabel;
+            System.Windows.Forms.Label studioNumberLabel;
+            System.Windows.Forms.Label studioTypeLabel;
+            System.Windows.Forms.Label totalRowsLabel;
+            System.Windows.Forms.Label totalSeatsLabel;
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cinemasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studioNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,42 +44,99 @@
             this.seatsPerRowDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.aksi2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.studiosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.studiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cinemaNameComboBox = new System.Windows.Forms.ComboBox();
             this.cinemasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.seatsPerRowTextBox = new System.Windows.Forms.TextBox();
+            this.studioNumberTextBox = new System.Windows.Forms.TextBox();
+            this.studioTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.totalRowsNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.totalSeatsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.studiosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            cinemaIDLabel = new System.Windows.Forms.Label();
+            seatsPerRowLabel = new System.Windows.Forms.Label();
+            studioNumberLabel = new System.Windows.Forms.Label();
+            studioTypeLabel = new System.Windows.Forms.Label();
+            totalRowsLabel = new System.Windows.Forms.Label();
+            totalSeatsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cinemasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalRowsNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalSeatsNumericUpDown)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cinemaIDLabel
+            // 
+            cinemaIDLabel.AutoSize = true;
+            cinemaIDLabel.Location = new System.Drawing.Point(327, 52);
+            cinemaIDLabel.Name = "cinemaIDLabel";
+            cinemaIDLabel.Size = new System.Drawing.Size(45, 13);
+            cinemaIDLabel.TabIndex = 20;
+            cinemaIDLabel.Text = "Cinema:";
+            // 
+            // seatsPerRowLabel
+            // 
+            seatsPerRowLabel.AutoSize = true;
+            seatsPerRowLabel.Location = new System.Drawing.Point(3, 26);
+            seatsPerRowLabel.Name = "seatsPerRowLabel";
+            seatsPerRowLabel.Size = new System.Drawing.Size(81, 13);
+            seatsPerRowLabel.TabIndex = 22;
+            seatsPerRowLabel.Text = "Seats Per Row:";
+            // 
+            // studioNumberLabel
+            // 
+            studioNumberLabel.AutoSize = true;
+            studioNumberLabel.Location = new System.Drawing.Point(3, 52);
+            studioNumberLabel.Name = "studioNumberLabel";
+            studioNumberLabel.Size = new System.Drawing.Size(80, 13);
+            studioNumberLabel.TabIndex = 24;
+            studioNumberLabel.Text = "Studio Number:";
+            // 
+            // studioTypeLabel
+            // 
+            studioTypeLabel.AutoSize = true;
+            studioTypeLabel.Location = new System.Drawing.Point(3, 78);
+            studioTypeLabel.Name = "studioTypeLabel";
+            studioTypeLabel.Size = new System.Drawing.Size(67, 13);
+            studioTypeLabel.TabIndex = 26;
+            studioTypeLabel.Text = "Studio Type:";
+            // 
+            // totalRowsLabel
+            // 
+            totalRowsLabel.AutoSize = true;
+            totalRowsLabel.Location = new System.Drawing.Point(3, 102);
+            totalRowsLabel.Name = "totalRowsLabel";
+            totalRowsLabel.Size = new System.Drawing.Size(64, 13);
+            totalRowsLabel.TabIndex = 28;
+            totalRowsLabel.Text = "Total Rows:";
+            // 
+            // totalSeatsLabel
+            // 
+            totalSeatsLabel.AutoSize = true;
+            totalSeatsLabel.Location = new System.Drawing.Point(327, 26);
+            totalSeatsLabel.Name = "totalSeatsLabel";
+            totalSeatsLabel.Size = new System.Drawing.Size(64, 13);
+            totalSeatsLabel.TabIndex = 30;
+            totalSeatsLabel.Text = "Total Seats:";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -90,7 +153,8 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(20, 93);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(760, 256);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(828, 482);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -99,41 +163,48 @@
             this.cinemasDataGridViewTextBoxColumn.DataPropertyName = "Cinemas";
             this.cinemasDataGridViewTextBoxColumn.HeaderText = "Cinema";
             this.cinemasDataGridViewTextBoxColumn.Name = "cinemasDataGridViewTextBoxColumn";
+            this.cinemasDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // studioNumberDataGridViewTextBoxColumn
             // 
             this.studioNumberDataGridViewTextBoxColumn.DataPropertyName = "StudioNumber";
             this.studioNumberDataGridViewTextBoxColumn.HeaderText = "StudioNumber";
             this.studioNumberDataGridViewTextBoxColumn.Name = "studioNumberDataGridViewTextBoxColumn";
+            this.studioNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // studioTypeDataGridViewTextBoxColumn
             // 
             this.studioTypeDataGridViewTextBoxColumn.DataPropertyName = "StudioType";
             this.studioTypeDataGridViewTextBoxColumn.HeaderText = "StudioType";
             this.studioTypeDataGridViewTextBoxColumn.Name = "studioTypeDataGridViewTextBoxColumn";
+            this.studioTypeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalSeatsDataGridViewTextBoxColumn
             // 
             this.totalSeatsDataGridViewTextBoxColumn.DataPropertyName = "TotalSeats";
             this.totalSeatsDataGridViewTextBoxColumn.HeaderText = "TotalSeats";
             this.totalSeatsDataGridViewTextBoxColumn.Name = "totalSeatsDataGridViewTextBoxColumn";
+            this.totalSeatsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // totalRowsDataGridViewTextBoxColumn
             // 
             this.totalRowsDataGridViewTextBoxColumn.DataPropertyName = "TotalRows";
             this.totalRowsDataGridViewTextBoxColumn.HeaderText = "TotalRows";
             this.totalRowsDataGridViewTextBoxColumn.Name = "totalRowsDataGridViewTextBoxColumn";
+            this.totalRowsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // seatsPerRowDataGridViewTextBoxColumn
             // 
             this.seatsPerRowDataGridViewTextBoxColumn.DataPropertyName = "SeatsPerRow";
             this.seatsPerRowDataGridViewTextBoxColumn.HeaderText = "SeatsPerRow";
             this.seatsPerRowDataGridViewTextBoxColumn.Name = "seatsPerRowDataGridViewTextBoxColumn";
+            this.seatsPerRowDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // aksi1
             // 
             this.aksi1.HeaderText = "Action 1";
             this.aksi1.Name = "aksi1";
+            this.aksi1.ReadOnly = true;
             this.aksi1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.aksi1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -141,6 +212,11 @@
             // 
             this.aksi2.HeaderText = "Action 2";
             this.aksi2.Name = "aksi2";
+            this.aksi2.ReadOnly = true;
+            // 
+            // studiosBindingSource1
+            // 
+            this.studiosBindingSource1.DataSource = typeof(CinemaFlix_Apps.Studios);
             // 
             // studiosBindingSource
             // 
@@ -148,157 +224,107 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.numericUpDown3);
-            this.panel2.Controls.Add(this.numericUpDown2);
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.textBox6);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.cinemaNameComboBox);
+            this.panel2.Controls.Add(cinemaIDLabel);
+            this.panel2.Controls.Add(seatsPerRowLabel);
+            this.panel2.Controls.Add(this.seatsPerRowTextBox);
+            this.panel2.Controls.Add(studioNumberLabel);
+            this.panel2.Controls.Add(this.studioNumberTextBox);
+            this.panel2.Controls.Add(studioTypeLabel);
+            this.panel2.Controls.Add(this.studioTypeComboBox);
+            this.panel2.Controls.Add(totalRowsLabel);
+            this.panel2.Controls.Add(this.totalRowsNumericUpDown);
+            this.panel2.Controls.Add(totalSeatsLabel);
+            this.panel2.Controls.Add(this.totalSeatsNumericUpDown);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(20, 349);
+            this.panel2.Location = new System.Drawing.Point(20, 575);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 181);
+            this.panel2.Size = new System.Drawing.Size(828, 154);
             this.panel2.TabIndex = 4;
             // 
-            // comboBox1
+            // cinemaNameComboBox
             // 
-            this.comboBox1.DataSource = this.cinemasBindingSource;
-            this.comboBox1.DisplayMember = "CinemaName";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(422, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 32;
-            this.comboBox1.ValueMember = "CinemaID";
+            this.cinemaNameComboBox.DataSource = this.cinemasBindingSource;
+            this.cinemaNameComboBox.DisplayMember = "CinemaName";
+            this.cinemaNameComboBox.FormattingEnabled = true;
+            this.cinemaNameComboBox.Location = new System.Drawing.Point(414, 49);
+            this.cinemaNameComboBox.Name = "cinemaNameComboBox";
+            this.cinemaNameComboBox.Size = new System.Drawing.Size(202, 21);
+            this.cinemaNameComboBox.TabIndex = 32;
+            this.cinemaNameComboBox.ValueMember = "CinemaID";
             // 
             // cinemasBindingSource
             // 
             this.cinemasBindingSource.DataSource = typeof(CinemaFlix_Apps.Cinemas);
             // 
-            // numericUpDown3
+            // seatsPerRowTextBox
             // 
-            this.numericUpDown3.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studiosBindingSource, "TotalSeats", true));
-            this.numericUpDown3.Location = new System.Drawing.Point(422, 24);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown3.TabIndex = 31;
+            this.seatsPerRowTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studiosBindingSource, "SeatsPerRow", true));
+            this.seatsPerRowTextBox.Location = new System.Drawing.Point(90, 23);
+            this.seatsPerRowTextBox.Name = "seatsPerRowTextBox";
+            this.seatsPerRowTextBox.Size = new System.Drawing.Size(202, 20);
+            this.seatsPerRowTextBox.TabIndex = 23;
             // 
-            // numericUpDown2
+            // studioNumberTextBox
             // 
-            this.numericUpDown2.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studiosBindingSource, "TotalRows", true));
-            this.numericUpDown2.Location = new System.Drawing.Point(88, 124);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown2.TabIndex = 30;
+            this.studioNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studiosBindingSource, "StudioNumber", true));
+            this.studioNumberTextBox.Location = new System.Drawing.Point(90, 49);
+            this.studioNumberTextBox.Name = "studioNumberTextBox";
+            this.studioNumberTextBox.Size = new System.Drawing.Size(202, 20);
+            this.studioNumberTextBox.TabIndex = 25;
             // 
-            // numericUpDown1
+            // studioTypeComboBox
             // 
-            this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studiosBindingSource, "TotalRows", true));
-            this.numericUpDown1.Location = new System.Drawing.Point(88, 24);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown1.TabIndex = 29;
+            this.studioTypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studiosBindingSource, "StudioType", true));
+            this.studioTypeComboBox.FormattingEnabled = true;
+            this.studioTypeComboBox.Items.AddRange(new object[] {
+            "Regular",
+            "Deluxe",
+            "IMAX",
+            "Premiere",
+            "4DX"});
+            this.studioTypeComboBox.Location = new System.Drawing.Point(90, 75);
+            this.studioTypeComboBox.Name = "studioTypeComboBox";
+            this.studioTypeComboBox.Size = new System.Drawing.Size(202, 21);
+            this.studioTypeComboBox.TabIndex = 27;
             // 
-            // label1
+            // totalRowsNumericUpDown
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(337, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "label1";
+            this.totalRowsNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studiosBindingSource, "TotalRows", true));
+            this.totalRowsNumericUpDown.Location = new System.Drawing.Point(90, 102);
+            this.totalRowsNumericUpDown.Name = "totalRowsNumericUpDown";
+            this.totalRowsNumericUpDown.Size = new System.Drawing.Size(202, 20);
+            this.totalRowsNumericUpDown.TabIndex = 29;
             // 
-            // label7
+            // totalSeatsNumericUpDown
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 126);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "label7";
-            // 
-            // textBox6
-            // 
-            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studiosBindingSource, "StudioType", true));
-            this.textBox6.Location = new System.Drawing.Point(88, 90);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 20);
-            this.textBox6.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 93);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "label8";
-            // 
-            // textBox4
-            // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studiosBindingSource, "StudioNumber", true));
-            this.textBox4.Location = new System.Drawing.Point(88, 57);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 60);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "label6";
+            this.totalSeatsNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.studiosBindingSource, "TotalSeats", true));
+            this.totalSeatsNumericUpDown.Location = new System.Drawing.Point(414, 23);
+            this.totalSeatsNumericUpDown.Name = "totalSeatsNumericUpDown";
+            this.totalSeatsNumericUpDown.Size = new System.Drawing.Size(202, 20);
+            this.totalSeatsNumericUpDown.TabIndex = 31;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(422, 90);
+            this.button2.Location = new System.Drawing.Point(414, 75);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 30);
             this.button2.TabIndex = 20;
-            this.button2.Text = "button2";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(534, 90);
+            this.button1.Location = new System.Drawing.Point(526, 75);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 19;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(337, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "label5";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 27);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "label4";
             // 
             // panel1
             // 
@@ -309,7 +335,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 73);
+            this.panel1.Size = new System.Drawing.Size(828, 73);
             this.panel1.TabIndex = 3;
             // 
             // label9
@@ -317,18 +343,18 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(503, 34);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(41, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "label9";
+            this.label9.Text = "Search";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(-3, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.Size = new System.Drawing.Size(167, 13);
             this.label10.TabIndex = 14;
-            this.label10.Text = "label10";
+            this.label10.Text = "All Studios Will Be Displayed Here";
             // 
             // textBox9
             // 
@@ -344,19 +370,20 @@
             this.label11.Location = new System.Drawing.Point(-4, 0);
             this.label11.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 24);
+            this.label11.Size = new System.Drawing.Size(196, 24);
             this.label11.TabIndex = 12;
-            this.label11.Text = "label11";
+            this.label11.Text = "Studio Management";
             // 
-            // studiosBindingSource1
+            // genresBindingSource
             // 
-            this.studiosBindingSource1.DataSource = typeof(CinemaFlix_Apps.Studios);
+            this.genresBindingSource.DataSource = typeof(CinemaFlix_Apps.Genres);
             // 
             // MasterStudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 550);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(868, 749);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -365,16 +392,16 @@
             this.Text = "MasterStudio";
             this.Load += new System.EventHandler(this.MasterStudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cinemasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalRowsNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalSeatsNumericUpDown)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -384,16 +411,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox9;
@@ -407,11 +426,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn seatsPerRowDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn aksi1;
         private System.Windows.Forms.DataGridViewButtonColumn aksi2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource cinemasBindingSource;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.BindingSource studiosBindingSource1;
+        private System.Windows.Forms.BindingSource genresBindingSource;
+        private System.Windows.Forms.TextBox seatsPerRowTextBox;
+        private System.Windows.Forms.TextBox studioNumberTextBox;
+        private System.Windows.Forms.ComboBox studioTypeComboBox;
+        private System.Windows.Forms.NumericUpDown totalRowsNumericUpDown;
+        private System.Windows.Forms.NumericUpDown totalSeatsNumericUpDown;
+        private System.Windows.Forms.ComboBox cinemaNameComboBox;
     }
 }

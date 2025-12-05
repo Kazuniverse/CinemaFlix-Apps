@@ -21,7 +21,7 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
         private void ChangeShowStatus_Load(object sender, EventArgs e)
         {
-            showtimesBindingSource.DataSource = db.Showtimes.ToList();
+            showtimesBindingSource1.DataSource = db.Showtimes.ToList();
 
             showtimesBindingSource.AddNew();
         }
@@ -60,6 +60,13 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             var c = Convert.ToInt32(comboBox1.SelectedValue);
             var st = Convert.ToInt32(comboBox2.SelectedValue);
 
+            label4.Visible = false;
+            label5.Visible = false;
+            label7.Visible = false;
+            comboBox1.Visible = false;
+            comboBox2.Visible = false;
+            textBox5.Visible = false;
+
             s.StudioID = st;
             var l = s.ShowtimeStatusChanges
                 .Where(u => u.ChangeID == c)
@@ -86,6 +93,8 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             textBox5.Visible = true;
             label5.Visible = true;
             label7.Visible = true;
+            button1.Visible = true;
+            button2.Visible = true;
         }
     }
 }

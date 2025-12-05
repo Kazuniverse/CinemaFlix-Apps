@@ -70,8 +70,18 @@ namespace CinemaFlix_Apps.Main_Page
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var log = new LoginForm();
-            log.MdiParent = this;
             log.Show();
+            Hide();
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = $"Welcome {Session.UName} - {DateTime.Now}";
         }
     }
 }

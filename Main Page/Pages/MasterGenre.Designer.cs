@@ -30,31 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.aksi1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.aksi2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.genreNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.genresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,37 +68,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(760, 73);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(20, 349);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(760, 181);
-            this.panel2.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.genreNameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.aksi1,
-            this.aksi2});
-            this.dataGridView1.DataSource = this.genresBindingSource1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 93);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(760, 256);
-            this.dataGridView1.TabIndex = 2;
             // 
             // label3
             // 
@@ -135,6 +104,20 @@
             this.label1.Size = new System.Drawing.Size(66, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "label1";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(20, 349);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(760, 181);
+            this.panel2.TabIndex = 1;
             // 
             // button2
             // 
@@ -191,10 +174,31 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "label4";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.genreNameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.aksi1,
+            this.aksi2});
+            this.dataGridView1.DataSource = this.genresBindingSource1;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(20, 93);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(760, 256);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // aksi1
             // 
             this.aksi1.HeaderText = "Action 1";
             this.aksi1.Name = "aksi1";
+            this.aksi1.ReadOnly = true;
             this.aksi1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.aksi1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -202,6 +206,7 @@
             // 
             this.aksi2.HeaderText = "Action 2";
             this.aksi2.Name = "aksi2";
+            this.aksi2.ReadOnly = true;
             this.aksi2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.aksi2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -210,12 +215,18 @@
             this.genreNameDataGridViewTextBoxColumn.DataPropertyName = "GenreName";
             this.genreNameDataGridViewTextBoxColumn.HeaderText = "GenreName";
             this.genreNameDataGridViewTextBoxColumn.Name = "genreNameDataGridViewTextBoxColumn";
+            this.genreNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genresBindingSource1
+            // 
+            this.genresBindingSource1.DataSource = typeof(CinemaFlix_Apps.Genres);
             // 
             // genresBindingSource
             // 
@@ -224,10 +235,6 @@
             // usersBindingSource
             // 
             this.usersBindingSource.DataSource = typeof(CinemaFlix_Apps.Users);
-            // 
-            // genresBindingSource1
-            // 
-            this.genresBindingSource1.DataSource = typeof(CinemaFlix_Apps.Genres);
             // 
             // MasterGenre
             // 
@@ -246,9 +253,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

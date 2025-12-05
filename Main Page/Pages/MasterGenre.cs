@@ -23,7 +23,7 @@ namespace CinemaFlix_Apps.Main_Page.Pages
         {
             genresBindingSource1.DataSource = db.Genres.ToList();
 
-            genresBindingSource1.AddNew();
+            genresBindingSource.AddNew();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -21,11 +21,12 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var m = moviesBindingSource.Current as Movies;
+            var m = moviesBindingSource1.Current as Movies;
 
-            var gen = Convert.ToInt32(comboBox1.SelectedValue);
+            var gen = Convert.ToInt32(genreNameComboBox.SelectedValue);
 
             m.GenreID = gen;
+            m.AgeRating = comboBox1.Name;
 
             db.Movies.AddOrUpdate(m);
             db.SaveChanges();
@@ -34,7 +35,7 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
         private void MasterMovie_Load(object sender, EventArgs e)
         {
-            moviesBindingSource1.DataSource = db.Movies.ToList();
+            moviesBindingSource.DataSource = db.Movies.ToList();
 
             genresBindingSource.DataSource = db.Genres.ToList();
 
@@ -46,7 +47,7 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             var m = dataGridView1.Rows[e.RowIndex].DataBoundItem as Movies;
 
             if (e.ColumnIndex == genresDataGridViewTextBoxColumn.Index)
-                e.Value = m.Genres.GenreName;
+                e.Value = m?.Genres?.GenreName;
         }
     }
 }
