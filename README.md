@@ -1,16 +1,3 @@
-GitHub Copilot Chat Assistant — I can create a README for CinemaFlix. Before I add it to your repo, a few quick clarifying questions so the README is accurate:
-
-1. What platform is CinemaFlix? (e.g., ASP.NET web app, Xamarin/MAUI mobile app, WPF/WinForms desktop app, Unity, console app)
-2. Which .NET version does the project target? (e.g., .NET 6, .NET 7)
-3. Does CinemaFlix use a 3rd-party movie API (TMDb, OMDb, etc.) that requires an API key? If so, what environment variable name should I document (I will not request the key itself)?
-4. Do you want a LICENSE file mention? If yes, which license (MIT, Apache-2.0, GPL, etc.)?
-5. Any CI (GitHub Actions) or additional setup (database, Docker) to include?
-6. Do you want screenshots, GIFs, or a demo link added? If yes, please provide image paths or a URL.
-
-Below is a complete draft README.md I can use as the file to commit. Tell me any edits, answer the questions above, or type "Create README" and I will add it to Kazuniverse/CinemaFlix-Apps on the master branch.
-
---- README draft (you can copy/paste or tell me to commit):
-
 # CinemaFlix
 
 A C#/.NET movie-browsing application that helps users discover, search, and save movies. CinemaFlix provides an elegant UI to browse popular, top-rated, and upcoming films, view details, and manage a personal watchlist.
