@@ -21,9 +21,13 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
         private void ChangeShowStatus_Load(object sender, EventArgs e)
         {
-            showtimesBindingSource1.DataSource = db.Showtimes.ToList();
+            showtimesBindingSource.DataSource = db.Showtimes.ToList();
 
-            showtimesBindingSource.AddNew();
+            showtimeStatusChangesBindingSource.DataSource = db.ShowtimeStatusChanges.ToList();
+            cinemasBindingSource.DataSource = db.Cinemas.ToList();
+            comboBox1.SelectedIndex = -1;
+
+            showtimesBindingSource1.AddNew();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -36,10 +40,24 @@ namespace CinemaFlix_Apps.Main_Page.Pages
                     .OrderByDescending(i => i.Status)
                     .FirstOrDefault();
 
+                if (ch?.Status == "Studio Changed")
+                    ch.Status = "On Schedule";
+
                 e.Value = ch?.Status ?? "On Schedule";
             }
             if (e.ColumnIndex == studiosDataGridViewTextBoxColumn.Index)
-                e.Value = s?.Studios?.StudioNumber;
+            {
+                var c = s?.ShowtimeStatusChanges
+                    .OrderByDescending(i => i.Status)
+                    .Select(i => i.NewStudioID)
+                    .FirstOrDefault();
+
+                var cn = db.Cinemas
+                    .FirstOrDefault(i => i.CinemaID == c);
+
+                e.Value = cn?.CinemaName ?? s.Studios.Cinemas.CinemaName;
+            }
+                
             if (e.ColumnIndex == moviesDataGridViewTextBoxColumn.Index)
                 e.Value = s?.Movies?.Title;
             if (e.ColumnIndex == lastmodif.Index)
@@ -49,31 +67,33 @@ namespace CinemaFlix_Apps.Main_Page.Pages
                     .Select(i => i.ChangeDateTime)
                     .FirstOrDefault();
 
-                e.Value = l?.ToString("HH;mm;ss") ?? "-";
+                e.Value = l?.ToString("dd:MMMM:yyyy") ?? "-";
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var s = showtimesBindingSource1.Current as Showtimes;
-
-            var c = Convert.ToInt32(comboBox1.SelectedValue);
-            var st = Convert.ToInt32(comboBox2.SelectedValue);
-
             label4.Visible = false;
             label5.Visible = false;
             label7.Visible = false;
             comboBox1.Visible = false;
             comboBox2.Visible = false;
             textBox5.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
 
-            s.StudioID = st;
-            var l = s.ShowtimeStatusChanges
-                .Where(u => u.ChangeID == c)
-                .Select(u => u.ChangeID)
-                .FirstOrDefault();
+            var s = showtimesBindingSource.Current as Showtimes;
 
-            db.Showtimes.AddOrUpdate(s);
+            var c = new ShowtimeStatusChanges()
+            {
+                ShowtimeID = s.ShowtimeID,
+                NewStudioID = Convert.ToInt32(comboBox2.SelectedValue ?? null),
+                ChangeDateTime = DateTime.Now,
+                Status = comboBox1.Text,
+                Remarks = textBox5.Text
+            };
+
+            db.ShowtimeStatusChanges.Add(c);
             db.SaveChanges();
             OnLoad(null);
         }
@@ -82,19 +102,70 @@ namespace CinemaFlix_Apps.Main_Page.Pages
         {
             if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
-                label4.Visible = true;
-                comboBox1.Visible = true;
+                if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Showtimes s)
+                {
+                    if (e.ColumnIndex == aksi1.Index)
+                    {
+                        label4.Visible = true;
+                        comboBox1.Visible = true;
+                        button1.Visible = true;
+                        button2.Visible = true;
+
+                        var ch = s.ShowtimeStatusChanges
+                            .OrderByDescending(p => p.ChangeDateTime ?? DateTime.MinValue)
+                            .FirstOrDefault();
+
+                        if (ch != null)
+                        {
+                            comboBox1.Text = ch.Status;
+                        }
+                        else
+                        {
+                            comboBox1.Text = "On Schedule";
+                        }
+                    }
+                }
+                
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.Visible = true;
-            textBox5.Visible = true;
-            label5.Visible = true;
-            label7.Visible = true;
-            button1.Visible = true;
-            button2.Visible = true;
+            if (comboBox1.SelectedIndex == 3)
+            {
+                comboBox2.Visible = true;
+                textBox5.Visible = true;
+                label5.Visible = true;
+                label7.Visible = true;
+            }
+            else
+            {
+                label5.Visible = false;
+                label7.Visible = false;
+                comboBox2.Visible = false;
+                textBox5.Visible = false;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            label4.Visible = false;
+            label5.Visible = false;
+            label7.Visible = false;
+            comboBox1.Visible = false;
+            comboBox2.Visible = false;
+            textBox5.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+
+            OnLoad(null);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            showtimesBindingSource.DataSource = db.Showtimes
+                .Where(p => p.Studios.Cinemas.CinemaName.Contains(textBox1.Text))
+                .ToList();
         }
     }
 }

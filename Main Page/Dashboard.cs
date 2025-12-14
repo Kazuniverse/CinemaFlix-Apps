@@ -18,53 +18,53 @@ namespace CinemaFlix_Apps.Main_Page
             InitializeComponent();
         }
 
+        public void viewer(Form form)
+        {
+            ActiveMdiChild?.Close();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         private void genresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var genres = new MasterGenre();
-            genres.MdiParent = this;
-            genres.Show();
+            viewer(genres);
         }
 
         private void moviesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var mov = new MasterMovie();
-            mov.MdiParent = this;
-            mov.Show();
+            viewer(mov);
         }
 
         private void cinemasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var cin = new MasterCinema();
-            cin.MdiParent = this;
-            cin.Show();
+            viewer(cin);
         }
 
         private void studiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var studio = new MasterStudio();
-            studio.MdiParent = this;
-            studio.Show();
+            viewer(studio);
         }
 
         private void showtimesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var pro = new MasterPromoCode();
-            pro.MdiParent = this;
-            pro.Show();
+            viewer(pro);
         }
 
         private void showtimesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var sho = new MasterShowtime();
-            sho.MdiParent = this;
-            sho.Show();
+            viewer(sho);
         }
 
         private void changeShowtimesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var sc = new ChangeShowStatus();
-            sc.MdiParent = this;
-            sc.Show();
+            viewer(sc);
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)

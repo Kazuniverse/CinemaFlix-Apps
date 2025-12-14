@@ -50,13 +50,49 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
             var m = Convert.ToInt32(comboBox1.SelectedValue);
             var st = Convert.ToInt32(comboBox2.SelectedValue);
+            TimeSpan p = TimeSpan.Parse(maskedTextBox1.Text);
 
             s.MovieID = m;
             s.StudioID = st;
+            s.ShowTime = p;
+            s.ShowtimeCode = maskedTextBox2.Text;
 
             db.Showtimes.AddOrUpdate(s);
             db.SaveChanges();
             OnLoad(null);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OnLoad(null);
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            showtimesBindingSource1.DataSource = db.Showtimes
+                .Where(p => p.ShowtimeCode.Contains(textBox9.Text))
+                .ToList();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Showtimes s)
+            {
+                if (e.ColumnIndex == aksi1.Index)
+                {
+                    var ss = db.Showtimes
+                        .AsNoTracking()
+                        .FirstOrDefault(p => p.ShowtimeID == s.ShowtimeID);
+
+                    showtimesBindingSource.DataSource = ss;
+                }
+                if (e.ColumnIndex == aksi2.Index)
+                {
+                    db.Showtimes.Remove(s);
+                    db.SaveChanges();
+                    OnLoad(null);
+                }
+            }
         }
     }
 }

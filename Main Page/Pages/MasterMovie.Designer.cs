@@ -53,6 +53,7 @@
             this.moviesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.moviesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.genreNameComboBox = new System.Windows.Forms.ComboBox();
             this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.castTextBox = new System.Windows.Forms.TextBox();
@@ -71,7 +72,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cinemasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cinemasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ageRatingLabel = new System.Windows.Forms.Label();
             castLabel = new System.Windows.Forms.Label();
             directorLabel = new System.Windows.Forms.Label();
@@ -133,9 +133,9 @@
             genreIDLabel.AutoSize = true;
             genreIDLabel.Location = new System.Drawing.Point(10, 129);
             genreIDLabel.Name = "genreIDLabel";
-            genreIDLabel.Size = new System.Drawing.Size(53, 13);
+            genreIDLabel.Size = new System.Drawing.Size(39, 13);
             genreIDLabel.TabIndex = 22;
-            genreIDLabel.Text = "Genre ID:";
+            genreIDLabel.Text = "Genre:";
             // 
             // producerLabel
             // 
@@ -199,6 +199,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(811, 407);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // titleDataGridViewTextBoxColumn
@@ -316,6 +317,20 @@
             this.panel2.Size = new System.Drawing.Size(811, 229);
             this.panel2.TabIndex = 4;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "G",
+            "PG",
+            "PG-13",
+            "R",
+            "NC-17"});
+            this.comboBox1.Location = new System.Drawing.Point(91, 22);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
+            this.comboBox1.TabIndex = 33;
+            // 
             // genreNameComboBox
             // 
             this.genreNameComboBox.DataSource = this.genresBindingSource;
@@ -395,8 +410,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 30);
             this.button2.TabIndex = 14;
-            this.button2.Text = "button2";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -404,7 +420,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -427,16 +443,16 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 11;
-            this.label10.Text = "label10";
+            this.label10.Text = "Search";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(-3, 34);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.Size = new System.Drawing.Size(166, 13);
             this.label11.TabIndex = 10;
-            this.label11.Text = "label11";
+            this.label11.Text = "All Movies Will Be Displayed Here";
             // 
             // textBox10
             // 
@@ -444,6 +460,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(200, 20);
             this.textBox10.TabIndex = 9;
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
             // 
             // label12
             // 
@@ -452,9 +469,9 @@
             this.label12.Location = new System.Drawing.Point(-4, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 24);
+            this.label12.Size = new System.Drawing.Size(193, 24);
             this.label12.TabIndex = 8;
-            this.label12.Text = "label12";
+            this.label12.Text = "Movie Management";
             // 
             // cinemasBindingSource
             // 
@@ -463,20 +480,6 @@
             // cinemasBindingSource1
             // 
             this.cinemasBindingSource1.DataSource = typeof(CinemaFlix_Apps.Cinemas);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "G",
-            "PG",
-            "PG-13",
-            "R",
-            "NC-17"});
-            this.comboBox1.Location = new System.Drawing.Point(91, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 33;
             // 
             // MasterMovie
             // 

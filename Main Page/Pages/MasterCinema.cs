@@ -34,5 +34,33 @@ namespace CinemaFlix_Apps.Main_Page.Pages
             db.SaveChanges();
             OnLoad(null);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            cinemasBindingSource1.DataSource = db.Cinemas
+                .Where(p => p.CinemaName.Contains(textBox1.Text))
+                .ToList();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Cinemas c)
+            {
+                if (e.ColumnIndex == aksi1.Index)
+                {
+                    var cc = db.Cinemas
+                        .AsNoTracking()
+                        .FirstOrDefault(p => p.CinemaID == c.CinemaID);
+
+                    cinemasBindingSource.DataSource = cc;
+                }
+                if (e.ColumnIndex == aksi2.Index)
+                {
+                    db.Cinemas.Remove(c);
+                    db.SaveChanges();
+                    OnLoad(null);
+                }
+            }
+        }
     }
 }

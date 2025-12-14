@@ -53,21 +53,22 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.studiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cinemasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.studiosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.showtimesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.showtimeStatusChangesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cinemasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox5
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.showtimeStatusChangesBindingSource, "Remarks", true));
             this.textBox5.Location = new System.Drawing.Point(416, 60);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
@@ -85,9 +86,9 @@
             this.label7.Location = new System.Drawing.Point(331, 63);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "label7";
+            this.label7.Text = "Remark";
             this.label7.Visible = false;
             // 
             // button1
@@ -96,7 +97,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 30);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -106,9 +107,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(331, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 6;
-            this.label5.Text = "label5";
+            this.label5.Text = "Studio";
             this.label5.Visible = false;
             // 
             // label4
@@ -117,9 +118,9 @@
             this.label4.Location = new System.Drawing.Point(-3, 30);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
+            this.label4.Text = "Status";
             this.label4.Visible = false;
             // 
             // label3
@@ -127,18 +128,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(503, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
+            this.label3.Text = "Search";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(-3, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(183, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.label2.Text = "All Showtimes Will Be Displayed Here";
             // 
             // textBox1
             // 
@@ -146,6 +147,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -154,9 +156,9 @@
             this.label1.Location = new System.Drawing.Point(-4, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 24);
+            this.label1.Size = new System.Drawing.Size(290, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Showtime Status Management";
             // 
             // dataGridView1
             // 
@@ -261,9 +263,10 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 30);
             this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
+            this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
@@ -284,32 +287,38 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.studiosBindingSource;
-            this.comboBox2.DisplayMember = "StudioNumber";
+            this.comboBox2.DataSource = this.cinemasBindingSource;
+            this.comboBox2.DisplayMember = "CinemaName";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(416, 27);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(199, 21);
             this.comboBox2.TabIndex = 16;
-            this.comboBox2.ValueMember = "StudioID";
+            this.comboBox2.ValueMember = "CinemaID";
             this.comboBox2.Visible = false;
             // 
-            // studiosBindingSource
+            // cinemasBindingSource
             // 
-            this.studiosBindingSource.DataSource = typeof(CinemaFlix_Apps.Studios);
+            this.cinemasBindingSource.DataSource = typeof(CinemaFlix_Apps.Cinemas);
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.showtimeStatusChangesBindingSource;
-            this.comboBox1.DisplayMember = "Status";
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "On Schedule",
+            "Cancelled",
+            "Full",
+            "Studio Changed"});
             this.comboBox1.Location = new System.Drawing.Point(68, 27);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(199, 21);
             this.comboBox1.TabIndex = 15;
-            this.comboBox1.ValueMember = "ChangeID";
             this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // studiosBindingSource
+            // 
+            this.studiosBindingSource.DataSource = typeof(CinemaFlix_Apps.Studios);
             // 
             // showtimesBindingSource1
             // 
@@ -334,6 +343,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cinemasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studiosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showtimesBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -368,5 +378,6 @@
         private System.Windows.Forms.BindingSource studiosBindingSource;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.BindingSource showtimesBindingSource1;
+        private System.Windows.Forms.BindingSource cinemasBindingSource;
     }
 }

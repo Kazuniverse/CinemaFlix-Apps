@@ -16,7 +16,7 @@ namespace CinemaFlix_Apps
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Page.Dashboard());
+            Application.Run(new LoginForm());
         }
     }
 }

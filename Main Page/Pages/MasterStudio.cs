@@ -36,9 +36,29 @@ namespace CinemaFlix_Apps.Main_Page.Pages
 
             s.CinemaID = c;
 
-            db.Studios.AddOrUpdate(s);
-            db.SaveChanges();
-            OnLoad(null);
+            var sCheck = db.Studios
+                .Where(p => p.CinemaID == c)
+                .Select(p => p.StudioNumber)
+                .FirstOrDefault();
+
+            if (studioNumberTextBox.Text == sCheck)
+            {
+                MessageBox.Show("Use Anothe Studio Number!");
+            }
+            else if (cinemaNameComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Chosee At Least 1 Cinema Name!");
+            }
+            else if (cinemaNameComboBox.SelectedIndex == -1 && studioNumberTextBox.Text == sCheck)
+            {
+                MessageBox.Show("Invalid Studio Number And Cinema Name!");
+            }
+            else
+            {
+                db.Studios.AddOrUpdate(s);
+                db.SaveChanges();
+                OnLoad(null);
+            }
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -52,6 +72,32 @@ namespace CinemaFlix_Apps.Main_Page.Pages
         private void button2_Click(object sender, EventArgs e)
         {
             OnLoad(null);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].DataBoundItem is Studios s)
+            {
+                if (e.ColumnIndex == aksi1.Index)
+                {
+                    var ss = db.Studios.AsNoTracking().FirstOrDefault(p => p.StudioID == s.StudioID);
+
+                    studiosBindingSource.DataSource = ss;
+                }
+                if (e.ColumnIndex == aksi2.Index)
+                {
+                    db.Studios.Remove(s);
+                    db.SaveChanges();
+                    OnLoad(null);
+                }
+            }
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            studiosBindingSource1.DataSource = db.Studios
+                .Where(p => p.StudioNumber.Contains(textBox9.Text) || p.Cinemas.CinemaName.Contains(textBox9.Text))
+                .ToList();
         }
     }
 }
